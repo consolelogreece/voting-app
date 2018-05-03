@@ -7,6 +7,9 @@
     "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build",
     "start": "nodemon --exec babel-node -- index.js"
   },
+  "engines": {
+        "node": "8.9.2"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
