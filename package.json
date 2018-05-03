@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "heroku-postbuild": "cd client && npm install --only=prod && npm install && npm run build",
+    "heroku-postbuild": "cd client && npm install --only=production && npm install && npm run build",
     "start": "nodemon --exec babel-node -- index.js"
   },
   "engines": {
