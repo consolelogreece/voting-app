@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build",
-    "start": "babel-node -- src/index.js"
+    "start": "babel-node -- index.js"
   },
   "engines": {
         "node": "8.11.1",
