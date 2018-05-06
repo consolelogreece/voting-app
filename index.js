@@ -1,6 +1,9 @@
 import express from 'express';
 import path from 'path';
+import dotenv from 'dotenv';
+import helmet from 'helmet';
 import bodyParser from 'body-parser';
+
 import SignIn from './auth/SignIn';
 import SignUp from './auth/SignUp';
 import CreatePoll from './poll/CreatePoll'
@@ -9,11 +12,15 @@ import DeletePoll from './poll/DeletePoll'
 import ViewPoll from './poll/ViewPoll'
 import VotePoll from './poll/VotePoll'
 
-import dotenv from 'dotenv'
 
-dotenv.config();
+
 
 const app = express();
+
+app.use(helmet());
+app.disable('x-powered-by');
+dotenv.config();
+
 app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, "client", "build")))
@@ -40,10 +47,8 @@ app.post('/api/createpoll', (req, res) => {
 });
 
 app.post('/api/votepoll', (req, res) => {
-
 	const data = req.body.data;
-	VotePoll(data, res)
-	
+	VotePoll(data, res)	
 });
 
 app.post('/api/mypolls', (req, res) => {
